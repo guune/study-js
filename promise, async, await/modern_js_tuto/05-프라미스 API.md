@@ -69,21 +69,23 @@ Promise.all([
 ```
 `.catch`가 실행 된다\
 
-> [!CAUTION] 에러가 발생하면 다른 프라미스는 무시 된다
+> [!CAUTION]
+> **에러가 발생하면 다른 프라미스는 무시 된다**<br>
 > `fetch`를 사용해 호출 여러 개를 만들면, 그중 하나가 실패하더라도 호출은 계속 일어난다. 그렇다라도 `Promise.all`은 다른 호출을 더는 신경 쓰지 않는다. 즉 처리가 되더라도 그 결과는 무시 된다
 > 프라미스에서는 '취소'라는 개념이 없어서 `Promise.all`도 프라미스를 취소하지 않는다. 다른 챕에서 배울 `AbortController`를 사용하면 프라미스 취소가 가능하긴 하지만, `AbortController`는 프라미스 API는 아니다
 
 
->[!NOTE] 이터러블 객체가 아닌 일반 값도 Promisa.all에 넘길 수 있다
-	>```js
-	>Promise.all([
-	>new Promise((resolve, reject) => {
-	>	setTimeout(() => resolve(1), 1000)
-	>}),
-	>2,
-	>3
-	>]).then(alert); // 1, 2, 3
-	>```
+>[!NOTE]
+> **이터러블 객체가 아닌 일반 값도 Promisa.all에 넘길 수 있다**<br>
+>```js
+>Promise.all([
+>new Promise((resolve, reject) => {
+>	setTimeout(() => resolve(1), 1000)
+>}),
+>2,
+>3
+>]).then(alert); // 1, 2, 3
+>```
 
 ### Promise.allSettled
 `Promise.all`은 프라미스가 하나라도 거절되면 전체를 거절. 따라서, 프라미스 결과가 모두 필요할 때같이 '모 아니면 도'일 때 유용
@@ -123,7 +125,8 @@ Promise.allSettled(urls.map(url => fetch(url)))
   });
 ```
 `(*)`로 표시한 줄의 `results`는 다음과 같다
-```json
+
+```
 [
   {status: 'fulfilled', value: ...응답...},
   {status: 'fulfilled', value: ...응답...},
@@ -211,21 +214,21 @@ let promise = new Promise((resolve, reject) => reject(error));
 실무에선 다섯 메서드 중 `Promise.all`을 가장 많이 사용합니다.
 
 나만의 언어로 정리 및 비유:
->promise 메서드가 all, allSettled, race, resolve, reject가 있음
->promise를 전에 주문벨로 비유 한 적이 있음
-> 주문벨을 받으면 손님에게는 state: 조리 중(pending) result: 모름(undefined)이 뜬다
->이때 이  주문벨을 가지고 여러가지 일을 할 수 있다
->all
->어떤 사람은 코스 요리가 전부 완료되면 먹고 싶을 수가 있음
->코스 요리 주문벨이 3개 있다고 가정해보자(에피 타이저, 메인 디시, 디저트)
->종업원에세 주문벨 3개를 넘겨주고 다 완료되면 음식을 가져달라고 한다
->하지만 하나라도 음식이 준비가 안 되면 바로 안 된다고 알려주고 안 먹음...
->allSettled
->하나라도 주문이 안 되었다고 안 먹는것은 조금 그래서 일단 가져달라고 함
->race
->배고프니 일단 제일 빨리 되는 것으로 달라고 함
->resolve
->준비가 필요가 없고 즉석으로 결과를 받을 수 있음
->이미 준비된 음식 바로 서빙
->reject
->즉시 주문 거절
+>promise 메서드가 all, allSettled, race, resolve, reject가 있음<br>
+>promise를 전에 주문벨로 비유 한 적이 있음<br>
+> 주문벨을 받으면 손님에게는 state: 조리 중(pending) result: 모름(undefined)이 뜬다<br>
+>이때 이  주문벨을 가지고 여러가지 일을 할 수 있다<br>
+>all<br>
+>어떤 사람은 코스 요리가 전부 완료되면 먹고 싶을 수가 있음<br>
+>코스 요리 주문벨이 3개 있다고 가정해보자(에피 타이저, 메인 디시, 디저트)<br>
+>종업원에세 주문벨 3개를 넘겨주고 다 완료되면 음식을 가져달라고 한다<br>
+>하지만 하나라도 음식이 준비가 안 되면 바로 안 된다고 알려주고 안 먹음...<br>
+>allSettled<br>
+>하나라도 주문이 안 되었다고 안 먹는것은 조금 그래서 일단 가져달라고 함<br>
+>race<br>
+>배고프니 일단 제일 빨리 되는 것으로 달라고 함<br>
+>resolve<br>
+>준비가 필요가 없고 즉석으로 결과를 받을 수 있음<br>
+>이미 준비된 음식 바로 서빙<br>
+>reject<br>
+>즉시 주문 거절<br>
