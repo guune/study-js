@@ -65,14 +65,16 @@ let promise = new Promise(function (resolve, reject) {
 
 ![promise 에러의 경우 내부 상태.png](./images/promise%20에러의%20경우%20내부%20상태.png)
 
-> [!NOTE] > **프라미스는 성공 또는 실패만 한다**
+> [!NOTE]
+> **프라미스는 성공 또는 실패만 한다**   
 > 처리가 끝난 프라미스에 resolve와 reject를 호출하면 무시됨
 
 > [!NOTE]
 > **Error 객체와 함께 거부하기**  
 > reject시 어떤 타입도 가능하지만 Error 객체 또는 Error를 상속받은 객체를 사용할 것을 추천
 
-> [!NOTE] > **resolve, reject 함수 즉시 호출하기**  
+> [!NOTE]   
+> **resolve, reject 함수 즉시 호출하기**  
 > 즉시 호출 가능
 >
 > ```js
