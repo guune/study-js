@@ -6,7 +6,7 @@
 내용을 보면서 나만의 언어로 비유 해보기
 정확하지 않은 비유도 아웃풋과 ltm 연결에 도움이 된다
 
-출처: 
-https://ko.javascript.info/
-https://exploringjs.com/deep-js/
-https://www.inflearn.com/course/functional-es6/
+출처:   
+https://ko.javascript.info/   
+https://exploringjs.com/deep-js/   
+https://www.inflearn.com/course/functional-es6/   
